@@ -1,75 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Name of chosen challenge</title>
-
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Name of chosen challenge</title>
-
-    <link rel="stylesheet" href="style.css">
- 
-  
-</head>
-<body>
-    
-    <!DOCTYPE html>
-<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link href="style.css" rel="stylesheet" type="text/css" />
     <title>Phonie</title>
   </head>
-  <body>
+  <body class="flex">
     <div class="container">
-      <p class="title">Buy Airtime</p>
+      <header class="container-header flex">
+        <a href="#"><i class="fa-solid fa-arrow-left-long"></i></a>
+        <h3 class="title">Buy Airtime</h3>
+      </header>
 
       <form class="form-section">
-        <div class="phone">
+        <div class="phone flex">
           <select>
             <option>+234</option>
             <option>+44</option>
             <option>+1</option>
           </select>
-          
-          <input
-            type="tel"
-            id="mobilenumber"
-            placeholder="8113243263"
-            maxlength="11"
-            required />
-        <img src="" id="network-logo" id="logos" width="30px">
-          
-         
+          <div class="mobile flex">
+            <input
+              type="tel"
+              id="mobilenumber"
+              placeholder="8113243263"
+              maxlength="11"
+              required
+            />
+
+            <div class="network-logo">
+              <img src="./images/airtel.png" alt="network logo" />
+            </div>
+          </div>
         </div>
 
         <p>
           <input type="text" id="Amount" placeholder="Amount" required />
         </p>
-        <input type="submit" id="button" value="Continue >>>" />
+        <button id="button">
+          Continue <i class="fa-solid fa-arrow-right-long"></i>
+        </button>
       </form>
     </div>
+
+    <!-- // ============= EEND DO NOT EDIT ============== // -->
+    <script src="index.mjs" type="module"></script>
+    <!-- // ============= EEND DO NOT EDIT ============== // -->
   </body>
-</html>
-
-  <!-- // ============= EEND DO NOT EDIT ============== // -->
-  <script src="index.mjs" type="module"></script>
-  <!-- // ============= EEND DO NOT EDIT ============== // -->
-</body>
-
 </html>
