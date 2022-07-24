@@ -5,12 +5,19 @@
 }
 
 body {
+  height: 100vh;
   background-color: bisque;
+  place-items: center;
+}
+
+img {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
 }
 .title {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
 }
 
 /* form {
@@ -19,7 +26,7 @@ body {
 } */
 
 .container {
-  border-radius: 0.3rem;
+  border-radius: 0.8rem;
   padding: 10px 5px;
   background-color: White;
   width: 350px;
@@ -28,13 +35,23 @@ body {
   padding: 0px 30px;
 }
 
-.phone {
-  display: flex;
+.container-header {
+  width: 80%;
+  padding-top: 1.2rem;
   flex-direction: row;
-  width: 100%;
-  margin: 50px auto 10px auto;
   align-items: center;
   justify-content: space-between;
+}
+
+.form-section {
+  padding-top: 5rem;
+}
+
+.phone {
+  width: 100%;
+  height: 30px;
+  gap: 5px;
+  /* margin: 50px auto 10px auto; */
 }
 
 .phone > input {
@@ -54,6 +71,20 @@ body {
   border: 1px solid grey;
   border-radius: 5px;
   height: 30px;
+}
+
+input[type="tel"] {
+  border: 0;
+  padding-left: 4px;
+}
+
+.mobile {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 2px;
+}
+.network-logo {
+  width: 20px;
 }
 
 #Amount {
