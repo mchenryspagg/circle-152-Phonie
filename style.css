@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: bisque;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+/* form {
+  margin: 4rem auto;
+  width: 40%;
+} */
+
+.container {
+  border-radius: 0.3rem;
+  padding: 10px 5px;
+  background-color: White;
+  width: 350px;
+  margin: 20px auto;
+  height: 400px;
+  padding: 0px 30px;
+}
+
+.phone {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 50px auto 10px auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phone > input {
+  width: 76%;
+  border: none;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 30px;
+  padding: 0px 5px;
+}
+
+.phone > select {
+  width: 22%;
+  border: none;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 30px;
+}
+
+#Amount {
+  width: 80%;
+  border: none;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 30px;
+  padding: 0px 5px;
+  margin: 5px auto;
+}
+
+#button {
+  width: 50%;
+  border: none;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 30px;
+  padding: 0px 5px;
+  margin: 5px auto;
+  background-color: blue;
+  color: aliceblue;
+  font-weight: bolder;
+}
