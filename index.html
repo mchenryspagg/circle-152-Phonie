@@ -24,17 +24,12 @@
 
       <form class="form-section">
         <div class="phone flex">
-          <select>
-            <option>+234</option>
-            <option>+44</option>
-            <option>+1</option>
-          </select>
           <div class="mobile flex">
             <input
               type="tel"
-              id="mobilenumber"
-              placeholder="8113243263"
-              maxlength="11"
+              class="mobile-number"
+              placeholder="Mobile Number"
+              maxlength="14"
               required
             />
 
@@ -45,7 +40,7 @@
         </div>
 
         <p>
-          <input type="text" id="Amount" placeholder="Amount" required />
+          <input type="text" id="Amount" placeholder="Amount(₦)" required />
         </p>
         <button id="button">
           Continue <i class="fa-solid fa-arrow-right-long"></i>

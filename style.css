@@ -77,6 +77,10 @@ input[type="tel"] {
   border: 0;
   padding-left: 4px;
 }
+input[type="tel"]:focus {
+  border: 0;
+  outline: 0;
+}
 
 .mobile {
   border: 1px solid grey;
