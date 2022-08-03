@@ -13,9 +13,8 @@ function checkNumber() {
   const mobileNumberValue = this.value;
 
   const firstFourDigits = /^[0][0-9]/.test(mobileNumberValue)
-    ? Number(String(mobileNumberValue).slice(0, 5))
-    : Number(String(mobileNumberValue).slice(0, 4));
-  console.log(firstFourDigits);
+    ? Number(String(mobileNumberValue).slice(0, 4))
+    : Number(String(mobileNumberValue).slice(0, 3));
   const myNetwork = confirmNetwork(Number(firstFourDigits));
   ChangeLogo(myNetwork);
 
@@ -72,6 +71,25 @@ function confirmNetwork(threeDigit) {
 
 function ChangeLogo(networkName) {
   // Write code that will enable the logo image to change based on the network name
+
+  const imageParent = document.querySelector(".network-logo");
+  switch (networkName) {
+    case "glo":
+      imageParent.innerHTML = `<img src="./images/glo.png" alt="network logo" />`;
+      break;
+    case "mtn":
+      imageParent.innerHTML = `<img src="./images/mtn.jpg" alt="network logo" />`;
+      break;
+    case "etisalat":
+      imageParent.innerHTML = `<img src="./images/9mobile.png" alt="network logo" />`;
+      break;
+    case "airtel":
+      imageParent.innerHTML = `<img src="./images/airtel.png" alt="network logo" />`;
+      break;
+
+    default:
+      imageParent.innerHTML = `<img src="./images/default.svg" />`;
+  }
 }
 
 // ======= DO NOT EDIT ============== //
