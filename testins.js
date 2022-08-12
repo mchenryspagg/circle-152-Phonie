@@ -1,7 +1,6 @@
-function startApp() {
-  const mobileNumber = document.querySelector(".mobile-number");
-  mobileNumber.addEventListener("keyup", checkNumber);
-}
+const mobileNumber = document.querySelector(".mobile-number");
+mobileNumber.addEventListener("keyup", checkNumber);
+let response;
 
 function checkNumber() {
   const mobileNumberValue = this.value;
@@ -11,11 +10,27 @@ function checkNumber() {
     : Number(String(mobileNumberValue).slice(0, 4));
 
   loadData(String(firstFourDigits));
+
+  // this function was for changing the image after the user finishes typing the number and the number is valid
+  // We had to change it to the above to that changes as yout type
+  // if (validNumber.test(this.value)) {
+  //   console.log(this.value);
+  //   const entireNumber = this.value;
+  //   const match = entireNumber.match(validNumber);
+
+  //   const threeDigit = match.groups.threedigit;
+  //   console.log(threeDigit);
+  //   console.log(confirmNetwork(threeDigit));
+  //   // ChangeLogo(confirmNetwork(Number(threeDigit)));
+  // } else {
+  //   // Create and call a function that display to the user that number entered is invalid
+  //   console.log("Invalid Number");
+  // }
 }
 
 function loadData(mobile) {
   let response;
-  let xhr = new XMLHttpRequest();
+  xhr = new XMLHttpRequest();
 
   xhr.open("GET", "./nnetworks.json", true);
 
@@ -49,18 +64,28 @@ function loadData(mobile) {
 
     response.etisalat.forEach((prefix) => {
       if (mobile.includes(String(prefix))) {
-        if (network == undefined) {
+        if (network != undefined) {
           network = "etisalat";
         }
       }
     });
 
     ChangeLogo(network);
+
+    // console.log(network);
   };
   xhr.send();
 }
 
+// const mobile = 702;
+
+// loadData(String(mobile));
+
+// console.log(response);
+
 function ChangeLogo(networkName) {
+  // Write code that will enable the logo image to change based on the network name
+
   const imageParent = document.querySelector(".network-logo");
   switch (networkName) {
     case "glo":
@@ -80,7 +105,3 @@ function ChangeLogo(networkName) {
       imageParent.innerHTML = `<img src="./images/default.svg" />`;
   }
 }
-
-// ======= DO NOT EDIT ============== //
-export default startApp;
-// ======= EEND DO NOT EDIT ========= //
