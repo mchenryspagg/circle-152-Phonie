@@ -3,6 +3,16 @@ function startApp() {
   mobileNumber.addEventListener("keyup", checkNumber);
 }
 
+let response;
+let xhr = new XMLHttpRequest();
+
+xhr.open("GET", "./nnetworks.json", true);
+
+xhr.onload = function () {
+  response = JSON.parse(this.responseText);
+};
+xhr.send();
+
 function checkNumber() {
   const mobileNumberValue = this.value;
 
@@ -14,50 +24,41 @@ function checkNumber() {
 }
 
 function loadData(mobile) {
-  let response;
-  let xhr = new XMLHttpRequest();
+  let network;
 
-  xhr.open("GET", "./nnetworks.json", true);
-
-  xhr.onload = function () {
-    response = JSON.parse(this.responseText);
-    let network;
-
-    response.mtn.forEach((prefix) => {
-      if (mobile.includes(String(prefix))) {
-        if (network == undefined) {
-          network = "mtn";
-        }
+  response.mtn.forEach((prefix) => {
+    if (mobile.includes(String(prefix))) {
+      if (network == undefined) {
+        network = "mtn";
       }
-    });
+    }
+  });
 
-    response.glo.forEach((prefix) => {
-      if (mobile.includes(String(prefix))) {
-        if (network == undefined) {
-          network = "glo";
-        }
+  response.glo.forEach((prefix) => {
+    if (mobile.includes(String(prefix))) {
+      if (network == undefined) {
+        network = "glo";
       }
-    });
+    }
+  });
 
-    response.airtel.forEach((prefix) => {
-      if (mobile.includes(String(prefix))) {
-        if (network == undefined) {
-          network = "airtel";
-        }
+  response.airtel.forEach((prefix) => {
+    if (mobile.includes(String(prefix))) {
+      if (network == undefined) {
+        network = "airtel";
       }
-    });
+    }
+  });
 
-    response.etisalat.forEach((prefix) => {
-      if (mobile.includes(String(prefix))) {
-        if (network == undefined) {
-          network = "etisalat";
-        }
+  response.etisalat.forEach((prefix) => {
+    if (mobile.includes(String(prefix))) {
+      if (network == undefined) {
+        network = "etisalat";
       }
-    });
+    }
+  });
 
-    ChangeLogo(network);
-  };
-  xhr.send();
+  ChangeLogo(network);
 }
 
 function ChangeLogo(networkName) {
