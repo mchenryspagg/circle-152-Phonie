@@ -1,6 +1,20 @@
+const mobileNumber = document.querySelector(".mobile-number");
 function startApp() {
-  const mobileNumber = document.querySelector(".mobile-number");
   mobileNumber.addEventListener("keyup", checkNumber);
+  mobileNumber.addEventListener("change", checkNumber);
+}
+const suggestionCover = document.querySelector(".form-section");
+const suggestionList = document.querySelector(".suggestion-list");
+
+suggestionCover.addEventListener("click", displayClicked);
+
+function displayClicked(e) {
+  let target = e.target;
+  if (target.className == "suggestion-list-item") {
+    mobileNumber.value = target.innerText;
+    loadData(String(mobileNumber.value));
+    suggestionList.style.display = "none";
+  }
 }
 
 let response;
@@ -21,6 +35,23 @@ function checkNumber() {
     : Number(String(mobileNumberValue).slice(0, 4));
 
   loadData(String(firstFourDigits));
+
+  if (this.value == "") {
+    suggestionList.innerHTML = "";
+    suggestionList.classList.remove("extended");
+  } else {
+    let newwwww = displaySuggestionToUI(
+      getMatches(response, String(firstFourDigits))
+    );
+
+    if (newwwww) {
+      suggestionList.innerHTML = newwwww;
+      suggestionList.classList.add("extended");
+    } else {
+      suggestionList.innerHTML = "";
+      suggestionList.classList.remove("extended");
+    }
+  }
 }
 
 function loadData(mobile) {
@@ -61,6 +92,24 @@ function loadData(mobile) {
   ChangeLogo(network);
 }
 
+function getMatches(response, textToSearch) {
+  let allNewtwork = [];
+  const newResponse = Object.values(response).forEach((network) => {
+    allNewtwork.push(network);
+  });
+
+  const arrayResponse = allNewtwork
+    .reduce((firstarray = [], next) => {
+      return firstarray.concat(next);
+    })
+    .map((networknumber) => "0" + networknumber);
+
+  return arrayResponse.filter((networkNumber) => {
+    let regex = new RegExp(textToSearch, "gi");
+    return networkNumber.match(regex);
+  });
+}
+
 function ChangeLogo(networkName) {
   const imageParent = document.querySelector(".network-logo");
   switch (networkName) {
@@ -80,6 +129,16 @@ function ChangeLogo(networkName) {
     default:
       imageParent.innerHTML = `<img src="./images/default.svg" />`;
   }
+}
+
+function displaySuggestionToUI(responseFromSearch) {
+  let toDisplay = "";
+  suggestionList.style.display = "inline-block";
+  responseFromSearch.forEach((telNumber) => {
+    toDisplay += `<li class= 'suggestion-list-item'>${telNumber}</li>`;
+  });
+
+  return toDisplay;
 }
 
 // ======= DO NOT EDIT ============== //
